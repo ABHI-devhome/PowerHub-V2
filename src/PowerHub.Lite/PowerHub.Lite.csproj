@@ -3,16 +3,22 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
-    <UseWindowsForms>true</UseWindowsForms>
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
-    <ImplicitUsings>disable</ImplicitUsings>
+    <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>PowerHubLite</AssemblyName>
     <RootNamespace>PowerHub.Lite</RootNamespace>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <Version>1.0.0</Version>
     <Product>PowerHub Lite</Product>
     <Description>Native system control hub for power and performance</Description>
+  </PropertyGroup>
+  <PropertyGroup>
+    <!-- Publish optimizations for smaller/faster Lite builds (applied on publish) -->
+    <PublishTrimmed>true</PublishTrimmed>
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>false</SelfContained>
+    <PublishReadyToRun>true</PublishReadyToRun>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\PowerHub.Core\PowerHub.Core.csproj" />

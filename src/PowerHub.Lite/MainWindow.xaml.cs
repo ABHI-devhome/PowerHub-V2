@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Threading.Tasks;
 using Microsoft.Win32;
 using PowerHub.Core;
 using System.Windows.Media.Imaging;
@@ -80,7 +81,7 @@ namespace PowerHub.Lite
             {
                 var rates = PowerManager.GetAvailableRefreshRates();
                 RefreshRateCombo.ItemsSource = rates;
-                
+
                 int? currentRate = PowerManager.GetCurrentRefreshRate();
                 if (currentRate.HasValue && rates.Contains(currentRate.Value))
                 {
@@ -169,14 +170,14 @@ namespace PowerHub.Lite
 
         private void RefreshInfo_Click(object sender, RoutedEventArgs e) => RefreshInfo();
 
-        private void ActivatePlan_Click(object sender, RoutedEventArgs e)
+        private async void ActivatePlan_Click(object sender, RoutedEventArgs e)
         {
             if (sender is Button btn && btn.CommandParameter is LitePowerPlan plan)
             {
                 try
                 {
                     PowerManager.ApplyPowerPlan(plan.Guid, plan.DisplayName);
-                    System.Threading.Thread.Sleep(500);
+                    await Task.Delay(500);
                     RefreshInfo();
                 }
                 catch (Exception ex)
@@ -186,15 +187,15 @@ namespace PowerHub.Lite
             }
         }
 
-        private void ActivateMode_Click(object sender, RoutedEventArgs e)
+        private async void ActivateMode_Click(object sender, RoutedEventArgs e)
         {
             if (sender is Button btn)
             {
                 try
                 {
                     string guid = btn.Name == "StandardModeBtn" ? _standardModeGuid : _batterySaverModeGuid;
-                    PowerManager.ApplyPowerMode(guid);
-                    System.Threading.Thread.Sleep(500);
+                    await Task.Run(() => PowerManager.ApplyPowerMode(guid));
+                    await Task.Delay(500);
                     RefreshInfo();
                     MessageBox.Show("Power mode applied successfully!");
                 }
@@ -205,7 +206,7 @@ namespace PowerHub.Lite
             }
         }
 
-        private void ApplyRefreshRate_Click(object sender, RoutedEventArgs e)
+        private async void ApplyRefreshRate_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -214,7 +215,7 @@ namespace PowerHub.Lite
                     PowerManager.ApplyRefreshRate(rate);
                     RefreshStatusText.Foreground = System.Windows.Media.Brushes.Green;
                     RefreshStatusText.Text = $"Applied {rate} Hz successfully!";
-                    System.Threading.Thread.Sleep(2000);
+                    await Task.Delay(2000);
                     UpdateRefreshRateDisplay();
                 }
             }
@@ -225,12 +226,12 @@ namespace PowerHub.Lite
             }
         }
 
-        private void UnlockPlans_Click(object sender, RoutedEventArgs e)
+        private async void UnlockPlans_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 var plans = (IEnumerable<LitePowerPlan>)PlansListBox.ItemsSource;
-                PowerManager.UnlockAllPlans(plans.Select(p => new KeyValuePair<string, string>(p.DisplayName, p.Guid)));
+                await Task.Run(() => PowerManager.UnlockAllPlans(plans.Select(p => new KeyValuePair<string, string>(p.DisplayName, p.Guid))));
                 MessageBox.Show("Standard plans unlocked. If they were missing, check the list now.");
             }
             catch (Exception ex)
@@ -256,12 +257,12 @@ namespace PowerHub.Lite
             }
         }
 
-        private void RunBoost_Click(object sender, RoutedEventArgs e)
+        private async void RunBoost_Click(object sender, RoutedEventArgs e)
         {
             BoostStatusText.Text = "Running boost...";
             try
             {
-                SystemTweaks.OneClickBoost();
+                await Task.Run(() => SystemTweaks.OneClickBoost());
                 BoostStatusText.Text = "One-click boost applied successfully!";
             }
             catch (Exception ex)
@@ -270,7 +271,7 @@ namespace PowerHub.Lite
             }
         }
 
-        private void ApplyPluggedInMode_Click(object sender, RoutedEventArgs e)
+        private async void ApplyPluggedInMode_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -281,8 +282,8 @@ namespace PowerHub.Lite
                     {
                         // Apply the selected power mode for plugged in state
                         string modeGuid = PowerManager.GetPowerModeGuidByName(selectedMode);
-                        PowerManager.ApplyPowerMode(modeGuid);
-                        System.Threading.Thread.Sleep(500);
+                        await Task.Run(() => PowerManager.ApplyPowerMode(modeGuid));
+                        await Task.Delay(500);
                         RefreshInfo();
                         MessageBox.Show($"Plugged in power mode set to: {selectedMode}");
                     }
@@ -294,7 +295,7 @@ namespace PowerHub.Lite
             }
         }
 
-        private void ApplyOnBatteryMode_Click(object sender, RoutedEventArgs e)
+        private async void ApplyOnBatteryMode_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -305,8 +306,8 @@ namespace PowerHub.Lite
                     {
                         // Apply the selected power mode for battery state
                         string modeGuid = PowerManager.GetPowerModeGuidByName(selectedMode);
-                        PowerManager.ApplyPowerMode(modeGuid);
-                        System.Threading.Thread.Sleep(500);
+                        await Task.Run(() => PowerManager.ApplyPowerMode(modeGuid));
+                        await Task.Delay(500);
                         RefreshInfo();
                         MessageBox.Show($"On battery power mode set to: {selectedMode}");
                     }
