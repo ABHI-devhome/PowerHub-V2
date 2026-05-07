@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <AssemblyName>PowerHubLite</AssemblyName>
+    <RootNamespace>PowerHub.Lite</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Version>1.0.0</Version>
+    <Product>PowerHub Lite</Product>
+    <Description>Native system control hub for power and performance</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PowerHub.Core\PowerHub.Core.csproj" />
+  </ItemGroup>
+</Project>

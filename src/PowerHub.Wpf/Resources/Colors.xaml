@@ -1,0 +1,110 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  
+  <!-- Material Design 3 Color Palette -->
+  
+  <!-- Primary Colors -->
+  <Color x:Key="Color.Primary">#004f96</Color>
+  <Color x:Key="Color.PrimaryContainer">#0067c0</Color>
+  <Color x:Key="Color.OnPrimary">#ffffff</Color>
+  <Color x:Key="Color.OnPrimaryContainer">#dbe7ff</Color>
+  <Color x:Key="Color.PrimaryFixed">#d5e3ff</Color>
+  <Color x:Key="Color.PrimaryFixedDim">#a6c8ff</Color>
+  
+  <!-- Secondary Colors -->
+  <Color x:Key="Color.Secondary">#5e5e5e</Color>
+  <Color x:Key="Color.SecondaryContainer">#e1dfdf</Color>
+  <Color x:Key="Color.OnSecondary">#ffffff</Color>
+  <Color x:Key="Color.OnSecondaryContainer">#626262</Color>
+  <Color x:Key="Color.SecondaryFixed">#e4e2e2</Color>
+  <Color x:Key="Color.SecondaryFixedDim">#c7c6c6</Color>
+  
+  <!-- Tertiary Colors -->
+  <Color x:Key="Color.Tertiary">#833900</Color>
+  <Color x:Key="Color.TertiaryContainer">#a84c00</Color>
+  <Color x:Key="Color.OnTertiary">#ffffff</Color>
+  <Color x:Key="Color.OnTertiaryContainer">#ffe0d1</Color>
+  <Color x:Key="Color.TertiaryFixed">#ffdbc9</Color>
+  <Color x:Key="Color.TertiaryFixedDim">#ffb68d</Color>
+  
+  <!-- Surface Colors -->
+  <Color x:Key="Color.Surface">#f9f9f9</Color>
+  <Color x:Key="Color.SurfaceBright">#f9f9f9</Color>
+  <Color x:Key="Color.SurfaceDim">#dadada</Color>
+  <Color x:Key="Color.SurfaceContainer">#eeeeee</Color>
+  <Color x:Key="Color.SurfaceContainerLow">#f3f3f3</Color>
+  <Color x:Key="Color.SurfaceContainerLowest">#ffffff</Color>
+  <Color x:Key="Color.SurfaceContainerHigh">#e8e8e8</Color>
+  <Color x:Key="Color.SurfaceContainerHighest">#e2e2e2</Color>
+  <Color x:Key="Color.OnSurface">#1a1c1c</Color>
+  <Color x:Key="Color.OnSurfaceVariant">#414752</Color>
+  
+  <!-- Text Colors -->
+  <Color x:Key="Color.Text">#1a1c1c</Color>
+  <Color x:Key="Color.Muted">#414752</Color>
+  <Color x:Key="Color.Background">#f9f9f9</Color>
+  <Color x:Key="Color.OnBackground">#1a1c1c</Color>
+  
+  <!-- Outline Colors -->
+  <Color x:Key="Color.Outline">#717783</Color>
+  <Color x:Key="Color.OutlineVariant">#c1c6d4</Color>
+  <Color x:Key="Color.SurfaceVariant">#e2e2e2</Color>
+  
+  <!-- Error Colors -->
+  <Color x:Key="Color.Error">#ba1a1a</Color>
+  <Color x:Key="Color.ErrorContainer">#ffdad6</Color>
+  <Color x:Key="Color.OnError">#ffffff</Color>
+  <Color x:Key="Color.OnErrorContainer">#93000a</Color>
+  
+  <!-- Inverse Colors -->
+  <Color x:Key="Color.InverseSurface">#2f3131</Color>
+  <Color x:Key="Color.InverseOnSurface">#f1f1f1</Color>
+  <Color x:Key="Color.InversePrimary">#a6c8ff</Color>
+  <Color x:Key="Color.SurfaceTint">#005eb1</Color>
+  
+  <!-- Status Colors -->
+  <Color x:Key="Color.Success">#10B981</Color>
+  <Color x:Key="Color.Warning">#F59E0B</Color>
+  <Color x:Key="Color.Hover">#f3f3f3</Color>
+  
+  <!-- Sidebar -->
+  <Color x:Key="Color.SidebarBg">#f5f5f5</Color>
+  <Color x:Key="Color.SidebarHover">#d0d0d0</Color>
+  
+  <SolidColorBrush x:Key="Brush.Primary" Color="{StaticResource Color.Primary}"/>
+  <SolidColorBrush x:Key="Brush.PrimaryContainer" Color="{StaticResource Color.PrimaryContainer}"/>
+  <SolidColorBrush x:Key="Brush.OnPrimary" Color="{StaticResource Color.OnPrimary}"/>
+  <SolidColorBrush x:Key="Brush.PrimaryHover" Color="#0056a1"/>
+  
+  <SolidColorBrush x:Key="Brush.Secondary" Color="{StaticResource Color.Secondary}"/>
+  <SolidColorBrush x:Key="Brush.SecondaryContainer" Color="{StaticResource Color.SecondaryContainer}"/>
+  <SolidColorBrush x:Key="Brush.OnSecondary" Color="{StaticResource Color.OnSecondary}"/>
+  <SolidColorBrush x:Key="Brush.OnSecondaryContainer" Color="{StaticResource Color.OnSecondaryContainer}"/>
+  <SolidColorBrush x:Key="Brush.SecondaryHover" Color="#6b6a6a"/>
+  
+  <SolidColorBrush x:Key="Brush.Tertiary" Color="{StaticResource Color.Tertiary}"/>
+  <SolidColorBrush x:Key="Brush.TertiaryContainer" Color="{StaticResource Color.TertiaryContainer}"/>
+  
+  <SolidColorBrush x:Key="Brush.Surface" Color="{StaticResource Color.Surface}"/>
+  <SolidColorBrush x:Key="Brush.SurfaceContainer" Color="{StaticResource Color.SurfaceContainer}"/>
+  <SolidColorBrush x:Key="Brush.SurfaceContainerLow" Color="{StaticResource Color.SurfaceContainerLow}"/>
+  <SolidColorBrush x:Key="Brush.SurfaceContainerHigh" Color="{StaticResource Color.SurfaceContainerHigh}"/>
+  <SolidColorBrush x:Key="Brush.SurfaceContainerHighest" Color="{StaticResource Color.SurfaceContainerHighest}"/>
+  <SolidColorBrush x:Key="Brush.BgContainer" Color="{StaticResource Color.SurfaceContainerLow}"/>
+  
+  <SolidColorBrush x:Key="Brush.Text" Color="{StaticResource Color.Text}"/>
+  <SolidColorBrush x:Key="Brush.Muted" Color="{StaticResource Color.Muted}"/>
+  <SolidColorBrush x:Key="Brush.Outline" Color="{StaticResource Color.Outline}"/>
+  <SolidColorBrush x:Key="Brush.OutlineVariant" Color="{StaticResource Color.OutlineVariant}"/>
+  
+  <SolidColorBrush x:Key="Brush.Background" Color="{StaticResource Color.Background}"/>
+  <SolidColorBrush x:Key="Brush.Error" Color="{StaticResource Color.Error}"/>
+  <SolidColorBrush x:Key="Brush.Success" Color="{StaticResource Color.Success}"/>
+  <SolidColorBrush x:Key="Brush.Warning" Color="{StaticResource Color.Warning}"/>
+  <SolidColorBrush x:Key="Brush.Hover" Color="{StaticResource Color.Hover}"/>
+  
+  <!-- Sidebar Brushes -->
+  <SolidColorBrush x:Key="Brush.SidebarBg" Color="{StaticResource Color.SidebarBg}"/>
+  <SolidColorBrush x:Key="Brush.SidebarHover" Color="{StaticResource Color.SidebarHover}"/>
+
+</ResourceDictionary>

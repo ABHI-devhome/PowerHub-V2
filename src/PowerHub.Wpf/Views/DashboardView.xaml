@@ -1,0 +1,33 @@
+<Page x:Class="PowerHub.UI.Views.DashboardView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      Title="DashboardView">
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="Welcome Back" Style="{StaticResource Text.Headline2}" Margin="0,0,0,4" />
+            <TextBlock Text="What would you like to build today?" Style="{StaticResource Text.Subtitle}" />
+        </StackPanel>
+
+        <ui:CardControl Grid.Row="1" Margin="0,24,0,0" VerticalAlignment="Top" Padding="16">
+            <ui:CardControl.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="Stealth Mode" FontSize="16" FontWeight="SemiBold" />
+                        <TextBlock Text="Optimizes power and suppresses visually distracting notifications." Foreground="{DynamicResource TextFillColorSecondaryBrush}" TextWrapping="Wrap" />
+                    </StackPanel>
+                    <ui:ToggleSwitch Grid.Column="1" Command="{Binding ToggleStealthModeCommand}" VerticalAlignment="Center" Margin="16,0,0,0" />
+                </Grid>
+            </ui:CardControl.Header>
+        </ui:CardControl>
+    </Grid>
+</Page>
